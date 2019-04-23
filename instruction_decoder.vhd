@@ -75,8 +75,8 @@ begin
                 alu_func <= "00000010";
             elsif (func = "000000") then --SLL (sll)
                 alu_func <= "00000011";
-            else --Assume add
-                alu_func <= "00000000";
+            else --Default to all 1's to indicate no result
+                alu_func <= (others => '1');
         elsif (opcode = "101000") then --I Mode: Store. (I'm using opcode 0x28, which translates to "store byte" (sb))
             i <= '1';
             nop <= '0';
@@ -89,6 +89,6 @@ begin
             i <= '0';
             nop <= '1';
         end if;   
-    end process
+    end process;
         
 end Behavioral;
