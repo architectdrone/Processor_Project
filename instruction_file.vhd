@@ -23,7 +23,7 @@ end instruction_file;
 architecture Behavioral of instruction_file is
 
 --Types
-type memory_type is array(0 to 31) of STD_LOGIC_VECTOR(31 downto 0);
+type memory_type is array(0 to 255) of STD_LOGIC_VECTOR(31 downto 0);
 
 --Constants
 constant zero_register : std_logic_vector(31 downto 0) := (others => '0');
