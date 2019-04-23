@@ -77,6 +77,7 @@ begin
                 alu_func <= "00000011";
             else --Default to all 1's to indicate no result
                 alu_func <= (others => '1');
+            end if;
         elsif (opcode = "101000") then --I Mode: Store. (I'm using opcode 0x28, which translates to "store byte" (sb))
             i <= '1';
             nop <= '0';
