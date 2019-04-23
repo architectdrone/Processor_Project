@@ -67,7 +67,7 @@ begin
         if (rising_edge(reset)) then
             for i in 32 loop
                 array_reg(i) <= (others <= '0');
-            end loop
+            end loop;
         end if;
-    end process
+    end process;
 end Behavioral;
