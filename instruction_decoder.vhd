@@ -52,7 +52,6 @@ begin
         r_rs     <= instruction(25 downto 21);
         r_rt     <= instruction(20 downto 16);
         r_rd     <= instruction(15 downto 11);
-        i_rs     <= instruction(25 downto 21);
         i_rt     <= instruction(20 downto 16);
         i_imm_rs <= instruction(15 downto 0);
         

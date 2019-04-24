@@ -1,17 +1,35 @@
 ----------------------------------------------------------------------------------
--- Company: The University of Kansas
--- Engineer: Owen Mellema
+-- Company: 
+-- Engineer: 
 -- 
 -- Create Date: 04/23/2019 03:10:55 PM
--- Design Name: Top Level design
+-- Design Name: 
 -- Module Name: top_level - Behavioral
--- Project Name: 32 bit Pseudo-MIPS processor
--- Target Devices: NEXSYS4 DDR
--- Description: Following MIPS conventions implement a 32-bit microprocessor
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
 ----------------------------------------------------------------------------------
+
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
 
 entity top_level is
     Port ( clk : in STD_LOGIC;
@@ -56,7 +74,7 @@ end component;
 component program_counter is
     port (
         clk: in STD_LOGIC;
-        addr: in STD_LOGIC_VECTOR(7 downto 0)
+        addr: out STD_LOGIC_VECTOR(7 downto 0)
     );
 end component;
 
