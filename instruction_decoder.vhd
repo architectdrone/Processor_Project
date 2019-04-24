@@ -14,6 +14,15 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
 entity instruction_decoder is
     Port ( instruction : in  STD_LOGIC_VECTOR (31 downto 0);
            alu_func    : out STD_LOGIC_VECTOR (7 downto 0);
@@ -38,6 +47,7 @@ begin
     
     begin
         opcode <= instruction(31 downto 26);
+        func <= instruction(5 downto 0);
         
         r_rs     <= instruction(25 downto 21);
         r_rt     <= instruction(20 downto 16);
@@ -49,7 +59,7 @@ begin
         if (opcode = "000000") then --R Mode 
             i <= '0';
             nop <= '0';
-            func <= instruction(5 downto 0);
+            
             if (func = "100000") then --Add (add)
                 alu_func <= "00000000";
             elsif (func = "100010") then --Subtract (sub)
@@ -58,20 +68,23 @@ begin
                 alu_func <= "00000010";
             elsif (func = "000000") then --SLL (sll)
                 alu_func <= "00000011";
-            else --Default to all 1's to indicate no result
-                alu_func <= (others => '1');
+            else --Assume add
+                alu_func <= "00000000";
             end if;
         elsif (opcode = "101000") then --I Mode: Store. (I'm using opcode 0x28, which translates to "store byte" (sb))
             i <= '1';
             nop <= '0';
             load <= '0';
+            
         elsif (opcode = "100000") then --I Mode: Load (0x20) Load Byte
             i <= '1';
             nop <= '0';
             load <= '1';
+            
         else --NOP. (Anything besides I and J modes understood.)
             i <= '0';
             nop <= '1';
+            
         end if;   
     end process;
         
