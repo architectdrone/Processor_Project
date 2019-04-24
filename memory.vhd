@@ -5,7 +5,7 @@
 -- Create Date: 04/23/2019 03:17:04 PM
 -- Design Name: Memory
 -- Module Name: memory - Behavioral
--- Project Name: 32-bit microprocessor implementing MIPS Architecture 
+-- Project Name: 32 bit Pseudo-MIPS processor
 -- Target Devices: NEXSYS4 DDR
 -- Description: Following MIPS conventions implement a 32-bit microprocessor
 ----------------------------------------------------------------------------------

@@ -1,32 +1,19 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: The University of Kansas
+-- Engineer: Owen Mellema
 -- 
 -- Create Date: 04/16/2019 03:55:20 PM
--- Design Name: 
+-- Design Name: Algorithmic Logic Unit
 -- Module Name: ALU - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: 32 bit Pseudo-MIPS processor
+-- Target Devices: NEXSYS4 DDR
+-- Description: Following MIPS conventions implement a 32-bit microprocessor
 ----------------------------------------------------------------------------------
 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity ALU is
     Port ( operation : in STD_LOGIC_VECTOR (7 downto 0);

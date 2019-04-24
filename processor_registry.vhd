@@ -1,21 +1,13 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
+-- Company: The University of Kansas
+-- Engineer: Owen Mellema
+--
 -- Create Date: 04/16/2019 04:42:42 PM
--- Design Name: 
+-- Design Name: Register File
 -- Module Name: processor_registry - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: 32 bit Pseudo-MIPS processor
+-- Target Devices: NEXSYS4 DDR
+-- Description: Following MIPS conventions implement a 32-bit microprocessor
 ----------------------------------------------------------------------------------
 
 
