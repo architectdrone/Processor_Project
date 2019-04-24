@@ -15,11 +15,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity processor_registry is
     Port ( w_addr : in STD_LOGIC_VECTOR (4 downto 0);
            w_in : in STD_LOGIC_VECTOR (31 downto 0);
@@ -33,8 +28,15 @@ entity processor_registry is
 end processor_registry;
 
 architecture Behavioral of processor_registry is
+    --Types
     type reg_file_type is array(31 downto 0) of std_logic_vector(31 downto 0);
+    
+    --Constants
+    constant zero_register : std_logic_vector(31 downto 0) := (others => '0');
+    
+    --Signals
     signal array_reg: reg_file_type;
+    
 begin
     --Normal operation
     process (clk)
@@ -57,9 +59,7 @@ begin
     process (reset)
     begin
         if (rising_edge(reset)) then
-            for i in 32 loop
-                array_reg(i) <= (others <= '0');
-            end loop;
+            array_reg <= (others => zero_register);
         end if;
     end process;
 end Behavioral;
