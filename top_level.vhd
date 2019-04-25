@@ -173,8 +173,8 @@ begin
     --Memory
     memory_input_output_address <= i_imm_rs_int;
     memory_input_data <= registry_output_data_1; --We read from output data 1 from the registry. See input data 1 for more details...
-    memory_input_control <= i_int and not load_int and not nop_int; --When we are in the I mode, and the store function, we allow inputs.
-    memory_output_control<= i_int and     load_int and not nop_int; --When we are in the I mode, and the load function, we allow outputs.
+    memory_input_control <= i_int and     load_int and not nop_int; --When we are in the I mode, and the load function, we allow inputs.
+    memory_output_control<= i_int and not load_int and not nop_int; --When we are in the I mode, and the store function, we allow outputs.
     
     display <= alu_output_data(15 downto 0);
     

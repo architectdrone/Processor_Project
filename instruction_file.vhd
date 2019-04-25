@@ -30,9 +30,9 @@ constant zero_register : std_logic_vector(31 downto 0) := (others => '0');
 --Hey bailey use this: https://www.eg.bucknell.edu/~csci320/mips_web/
 constant instructions: memory_type:=(
 0 => "11111111111111111111111111111111", --Put a NOP here. The system stutters on its first operation after a reset, so we don't put anything of value here.
-1 => "10000000000000010000000000000001", --Load M1 into R1 "100000 00000 00001 0000000000000001"
-2 => "10000000000000100000000000000001", --Load M1 into R2 "100000 00000 00010 0000000000000001"
-3 => "00000000001000100001100000100000", --Add R1 and R2, put the result in R3. Display should read 2.
+1 => "10000000000010000000000000000001", --Load M1 into R8 "100000 00000 01000 0000000000000001"
+2 => "10000000000010010000000000000001", --Load M1 into R9 "100000 00000 01001 0000000000000001"
+3 => "00000001001010000101000000100000", --Add R8 and R9, put the result in R10. Display should read 2.
 others => "00000000000000000000000000000000" --Leave at end to default remaining registers to 0
 ); 
 
