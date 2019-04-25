@@ -45,7 +45,7 @@ architecture Behavioral of instruction_decoder is
     
 begin
 --Assume the bytecode used here: https://en.wikibooks.org/wiki/MIPS_Assembly/Instruction_Formats
-    process (instruction)
+    process (instruction, opcode, func)
     
     begin
         opcode <= instruction(31 downto 26);
