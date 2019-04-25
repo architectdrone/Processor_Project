@@ -163,7 +163,7 @@ begin
     registry_output_address_2 <= r_rt_int;
     registry_input_address    <= r_rd_int when (i_int = '0') else i_rt_int; --We also use rt when we are in the i mode here.
     registry_input_data       <= alu_output_data when (i_int = '0') else memory_output_data; --Store the results of ALU operations in the registry when in the r mode, otherwise use the output of the memory. Note that the input is only accepted when we are in store for i.
-    registry_input_control    <= (not i_int and not nop_int) or (i_int and not load_int and not nop_int); --Allow inputs when we are in the r mode, as all operations lead to a stored value. OR inputs when we are in the i mode and the store function.
+    registry_input_control    <= (not i_int and not nop_int) or (i_int and load_int and not nop_int); --Allow inputs when we are in the r mode, as all operations lead to a stored value. OR inputs when we are in the i mode and the store function.
     
     --ALU
     alu_input_data_1 <= registry_output_data_1;
