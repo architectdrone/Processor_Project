@@ -28,7 +28,7 @@ end memory;
 architecture Behavioral of memory is
 
 --Types
-type memory_type is array(0 to 4095) of STD_LOGIC_VECTOR(31 downto 0); --3 Hexadecimal addresses
+type memory_type is array(0 to 65355) of STD_LOGIC_VECTOR(31 downto 0); --3 Hexadecimal addresses
 
 --Constants
 constant zero_register : std_logic_vector(31 downto 0) := (others => '0');
