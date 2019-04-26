@@ -33,9 +33,9 @@ process (operand1, operand2, operation)
         elsif (operation = "00000001") then --Subtract
             result <= STD_LOGIC_VECTOR(signed(operand1)-signed(operand2));
         elsif (operation = "00000010") then --Shift Right Logical
-           result <= std_logic_vector(shift_left(unsigned(operand1), to_integer(unsigned(operand2))));
-        elsif (operation = "00000011") then --Shift Left Logical
            result <= std_logic_vector(shift_right(unsigned(operand1), to_integer(unsigned(operand2))));
+        elsif (operation = "00000011") then --Shift Left Logical
+           result <= std_logic_vector(shift_left(unsigned(operand1), to_integer(unsigned(operand2))));
         else
            result <= (others => '0'); 
         end if;
