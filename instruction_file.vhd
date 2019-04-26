@@ -29,10 +29,10 @@ type memory_type is array(0 to 255) of STD_LOGIC_VECTOR(31 downto 0);
 constant zero_register : std_logic_vector(31 downto 0) := (others => '0');
 --Hey bailey use this: https://www.eg.bucknell.edu/~csci320/mips_web/
 constant instructions: memory_type:=(
-0 => "11111111111111111111111111111111", --Put a NOP here. The system stutters on its first operation after a reset, so we don't put anything of value here.
-1 => "10000000000010000000000000000001", --Load M1 into R8 "100000 00000 01000 0000000000000001"
-2 => "10000000000010010000000000000001", --Load M1 into R9 "100000 00000 01001 0000000000000001"
-3 => "00000001001010000101000000100000", --Add R8 and R9, put the result in R10. Display should read 2.
+--0 => "11111111111111111111111111111111", --Put a NOP here. The system stutters on its first operation after a reset, so we don't put anything of value here.
+0 => "10000000000010000000000000000001", --Load M1 into R8 "100000 00000 01000 0000000000000001"
+1 => "10000000000010010000000000000001", --Load M1 into R9 "100000 00000 01001 0000000000000001"
+2 => "00000001001010000101000000100000", --Add R8 and R9, put the result in R10. Display should read 2.
 others => "00000000000000000000000000000000" --Leave at end to default remaining registers to 0
 ); 
 
