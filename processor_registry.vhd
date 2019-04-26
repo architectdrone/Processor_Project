@@ -37,6 +37,9 @@ architecture Behavioral of processor_registry is
     signal array_reg: reg_file_type;
     
 begin
+    --Access locations
+    r_out1 <= array_reg(to_integer(unsigned(r_addr1)));
+    r_out2 <= array_reg(to_integer(unsigned(r_addr2)));
     --Normal operation
     process (clk, reset)
     begin
@@ -44,10 +47,6 @@ begin
             if (reset = '1') then
                 array_reg(array_reg'length - 1 downto 0) <= (others => zero_register);
             else
-                --Access locations
-                r_out1 <= array_reg(to_integer(unsigned(r_addr1)));
-                r_out2 <= array_reg(to_integer(unsigned(r_addr2)));
-                
                 --Write
                 if ((to_integer(unsigned(w_addr)) >= 8) and (to_integer(unsigned(w_addr)) <= 23)) then --This line garuntees that we will only write to allowed locations
                     if (w_en = '1') then
