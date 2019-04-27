@@ -1,0 +1,18 @@
+--The fibonacci sequence. Not as cool as the doubler, because it doesn't go infinitely.
+constant instructions: memory_type:=(
+0=>"10000000000010000000000000000001", --Load M1 into R8.
+1=>"10000000000010000000000000000001", --Load M1 into R9.
+--The fun part. Copy and paste to taste.
+2=>"00000001001010000100000000100000", --Add R8 and R9, put the result in R8.
+3=>"00000001001010000100100000100000", --Add R8 and R9, put the result in R9.
+--Here I've copied and pasted a few times.
+4=>"00000001001010000100000000100000", --Add R8 and R9, put the result in R8.
+5=>"00000001001010000100100000100000", --Add R8 and R9, put the result in R9.
+6=>"00000001001010000100000000100000", --Add R8 and R9, put the result in R8.
+7=>"00000001001010000100100000100000", --Add R8 and R9, put the result in R9.
+8=>"00000001001010000100000000100000", --Add R8 and R9, put the result in R8.
+9=>"00000001001010000100100000100000", --Add R8 and R9, put the result in R9.
+10=>"00000001001010000100000000100000", --Add R8 and R9, put the result in R8.
+11=>"00000001001010000100100000100000", --Add R8 and R9, put the result in R9.
+others => "00000000000000000000000000000000" 
+); 

@@ -29,9 +29,20 @@ type memory_type is array(0 to 255) of STD_LOGIC_VECTOR(31 downto 0);
 constant zero_register : std_logic_vector(31 downto 0) := (others => '0');
 --Hey bailey use this: https://www.eg.bucknell.edu/~csci320/mips_web/
 constant instructions: memory_type:=(
-0 => "10000000000010000000000000000001", --Load M1 into R8
-1 => "00000001000000000000000000100000", --For my OCD, the first number of the sequence is 1. This bit of microcode adds R8 with R0, and stores the result in R0.
-others => "00000001000010000100000000100000" --Add R8 and R8 and store the result in R8. Result should be 2*(n-1), where (n-1) is the previous value.
+0=>"10000000000010000000000000000001", --Load M1 into R8.
+--The fun part. Copy and paste to taste.
+1=>"00000001001010000100000000100000", --Add R8 and R9, put the result in R8.
+2=>"00000001001010000100100000100000", --Add R8 and R9, put the result in R9.
+--Here I've copied and pasted a few times.
+3=>"00000001001010000100000000100000", --Add R8 and R9, put the result in R8.
+4=>"00000001001010000100100000100000", --Add R8 and R9, put the result in R9.
+5=>"00000001001010000100000000100000", --Add R8 and R9, put the result in R8.
+6=>"00000001001010000100100000100000", --Add R8 and R9, put the result in R9.
+7=>"00000001001010000100000000100000", --Add R8 and R9, put the result in R8.
+8=>"00000001001010000100100000100000", --Add R8 and R9, put the result in R9.
+9=>"00000001001010000100000000100000", --Add R8 and R9, put the result in R8.
+10=>"00000001001010000100100000100000", --Add R8 and R9, put the result in R9.
+others => "00000000000000000000000000000000" 
 ); 
 
 begin
