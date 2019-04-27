@@ -1,0 +1,6 @@
+How to execute an example code file:
+1. Copy the text of the code file.
+2. Open the file instructions.vhd
+3. Delete all of the lines that correspond with the line "constant instructions: memory_type:=("
+4. Paste in its place the code file.
+5. Restart Simulation.
