@@ -16,8 +16,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity instruction_file is
-    Port ( address : in STD_LOGIC_VECTOR (7 downto 0);
-           instruction : out STD_LOGIC_VECTOR (31 downto 0));
+    Port ( address      : in STD_LOGIC_VECTOR (7 downto 0); --! Address of instruction
+           instruction  : out STD_LOGIC_VECTOR (31 downto 0) --! Value of register at address
+           );
 end instruction_file;
 
 architecture Behavioral of instruction_file is

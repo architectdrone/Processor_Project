@@ -16,22 +16,22 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity memory is
-    Port ( 
-           debug_addr: in STD_LOGIC_VECTOR(15 downto 0);
-           addr : in STD_LOGIC_VECTOR (15 downto 0);
-           write: in STD_LOGIC_VECTOR (31 downto 0);
-           w_en : in STD_LOGIC;
-           r_en : in STD_LOGIC;
-           clk  : in STD_LOGIC;
-           read : out STD_LOGIC_VECTOR (31 downto 0);
-           debug_read: out STD_LOGIC_VECTOR(31 downto 0);
-           reset: in STD_LOGIC);
+    Port ( debug_addr   : in STD_LOGIC_VECTOR(15 downto 0); --! Address of debug read
+           addr         : in STD_LOGIC_VECTOR (15 downto 0); --! Address to write/read from
+           write        : in STD_LOGIC_VECTOR (31 downto 0); --! Valuet o write to addr
+           w_en         : in STD_LOGIC; --! Write enable signal
+           r_en         : in STD_LOGIC; --! Read enable signal
+           clk          : in STD_LOGIC; --! Clock signal
+           read         : out STD_LOGIC_VECTOR (31 downto 0); --! Value stored at addr when r_en is '1'
+           debug_read   : out STD_LOGIC_VECTOR(31 downto 0); --! Output of register at debug_addr
+           reset        : in STD_LOGIC --! Reset signal
+           );
 end memory;
 
 architecture Behavioral of memory is
 
 --Types
-type memory_type is array(0 to 31) of STD_LOGIC_VECTOR(31 downto 0); --3 Hexadecimal addresses
+type memory_type is array(0 to 31) of STD_LOGIC_VECTOR(31 downto 0);
 
 --Constants
 constant zero_register : std_logic_vector(31 downto 0) := (others => '0');

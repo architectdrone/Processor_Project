@@ -16,9 +16,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity program_counter is
-    Port (  clk : in STD_LOGIC;
-            reset: in STD_LOGIC;
-            addr : out STD_LOGIC_VECTOR (7 downto 0));
+    Port (  clk     : in STD_LOGIC; --! Clock signal
+            reset   : in STD_LOGIC; --! Reset signal
+            addr    : out STD_LOGIC_VECTOR(7 downto 0) --! Address of next instruction
+            );
 end program_counter;
 
 architecture Behavioral of program_counter is

@@ -16,10 +16,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity ALU is
-    Port ( operation : in STD_LOGIC_VECTOR (7 downto 0);
-           operand1 : in STD_LOGIC_VECTOR (31 downto 0);
-           operand2 : in STD_LOGIC_VECTOR (31 downto 0);
-           result : out STD_LOGIC_VECTOR (31 downto 0));
+    Port  ( operation  : in STD_LOGIC_VECTOR (7 downto 0); --! Operation to perform
+            operand1   : in STD_LOGIC_VECTOR (31 downto 0); --! First operand
+            operand2   : in STD_LOGIC_VECTOR (31 downto 0); --! Second operand
+            result     : out STD_LOGIC_VECTOR (31 downto 0)); --! Result of opration on operands
 end ALU;
 
 architecture Behavioral of ALU is

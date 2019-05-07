@@ -16,18 +16,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity processor_registry is
-    Port ( 
-           d_addr: in STD_LOGIC_VECTOR (4 downto 0);
-           w_addr : in STD_LOGIC_VECTOR (4 downto 0);
-           w_in : in STD_LOGIC_VECTOR (31 downto 0);
-           w_en : in STD_LOGIC;
-           r_addr1 : in STD_LOGIC_VECTOR (4 downto 0);
-           r_addr2 : in STD_LOGIC_VECTOR (4 downto 0);
-           d_out: out STD_LOGIC_VECTOR (31 downto 0);
-           r_out1 : out STD_LOGIC_VECTOR (31 downto 0);
-           r_out2 : out STD_LOGIC_VECTOR (31 downto 0);
-           clk : in STD_LOGIC;
-           reset : in STD_LOGIC);
+    Port ( d_addr   : in STD_LOGIC_VECTOR (4 downto 0); --! Address of debug read
+           w_addr   : in STD_LOGIC_VECTOR (4 downto 0); --! Address to write to in register file
+           w_in     : in STD_LOGIC_VECTOR (31 downto 0); --! Value to write into address at w_addr
+           w_en     : in STD_LOGIC; --! write enable signal
+           r_addr1  : in STD_LOGIC_VECTOR (4 downto 0); --! First read address
+           r_addr2  : in STD_LOGIC_VECTOR (4 downto 0); --! Second read address
+           d_out    : out STD_LOGIC_VECTOR (31 downto 0); --! Read address for debug
+           r_out1   : out STD_LOGIC_VECTOR (31 downto 0); --! Output of value at r_addr1
+           r_out2   : out STD_LOGIC_VECTOR (31 downto 0); --! Output of value at r_addr2
+           clk      : in STD_LOGIC; --! Clock signal
+           reset    : in STD_LOGIC --! Reset signal
+           );
 end processor_registry;
 
 architecture Behavioral of processor_registry is
@@ -52,7 +52,7 @@ begin
                 array_reg(array_reg'length - 1 downto 0) <= (others => zero_register);
             else
                 --Write
-                if ((to_integer(unsigned(w_addr)) >= 8) and (to_integer(unsigned(w_addr)) <= 23)) then --This line garuntees that we will only write to allowed locations
+                if ((to_integer(unsigned(w_addr)) >= 8) and (to_integer(unsigned(w_addr)) <= 25)) then --only write to temp/saved registers
                     if (w_en = '1') then
                         array_reg(to_integer(unsigned(w_addr))) <= w_in;
                     end if;
